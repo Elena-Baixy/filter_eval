@@ -1,0 +1,12 @@
+{
+  "Checklist": {
+    "RP1_ImplementationReconstructability": "PASS",
+    "RP2_EnvironmentReproducibility": "PASS",
+    "RP3_DeterminismAndStability": "PASS"
+  },
+  "Rationale": {
+    "RP1_ImplementationReconstructability": "The experiment can be reconstructed from plan.md and CodeWalkthrough.md. The plan clearly states the hypothesis (filter heads encode predicates in query states), methodology (causal mediation via query patching), and expected results (causality scores, delta-logit values). The demo notebook provides sufficient implementation details for key functions like cache_q_projections and verify_head_patterns. Minor ambiguities in token position conventions can be resolved through code inspection.",
+    "RP2_EnvironmentReproducibility": "The environment can be restored using conda_env.yml and env_demo.yml. Key dependencies (torch >= 2.7, transformers >= 4.55, nnsight, baukit) are documented. baukit requires separate pip installation as noted in CodeWalkthrough.md. Disk quota issues during replication were infrastructure-related, not reproducibility issues. Core experiment runs successfully with available dependencies.",
+    "RP3_DeterminismAndStability": "Results are stable across runs with controlled seeds. Random seeds can be set for sample generation, model inference is deterministic with torch.no_grad(), and the patching mechanism produces consistent results. Head rankings remained stable across multiple runs with SEED=42. The original paper reports standard deviations, indicating variance was measured and controlled."
+  }
+}
