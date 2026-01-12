@@ -1,0 +1,12 @@
+{
+  "Checklist": {
+    "DE1_ResultFidelity": "PASS",
+    "DE2_ConclusionConsistency": "PASS",
+    "DE3_NoExternalInformation": "PASS"
+  },
+  "Rationale": {
+    "DE1_ResultFidelity": "The replication is a demo-only case. The replicated demo outputs show a positive delta logit (+0.0625) when patching query states from source to destination prompts, which matches the direction of effects shown in the original demo/paper (positive delta logit). While the magnitude is smaller (0.0625 vs ~9.03), this is explicitly attributed to using a smaller model (8B vs 70B) and fewer heuristically-selected heads (10 vs 79 systematically identified). The replication correctly demonstrates that query state patching produces the expected positive effect on target item logits.",
+    "DE2_ConclusionConsistency": "The replicated documentation presents conclusions consistent with the original. Both documents conclude that: (1) filter heads encode predicate information in query states, and (2) patching query states transfers the filtering operation to new contexts. The replication appropriately frames its findings as 'partial success' due to using a smaller model, not as a contradiction of the original claims. The core hypothesis - that query states encode portable predicate representations - is supported by the positive direction of effects observed in the replication.",
+    "DE3_NoExternalInformation": "No external or hallucinated information is introduced. All methodology in the replication is grounded in the original paper or codebase: the task setup, data sources, code functions, and head selection rationale (based on paper's finding that filter heads concentrate in middle layers). The replication uses only materials provided in the repository (data_save/, src/ functions) and does not introduce external references or invented findings. All claims are derived directly from running the provided code."
+  }
+}

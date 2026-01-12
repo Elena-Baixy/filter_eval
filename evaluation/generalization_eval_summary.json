@@ -1,0 +1,12 @@
+{
+  "Checklist": {
+    "GT1_ModelGeneralization": "PASS",
+    "GT2_DataGeneralization": "PASS",
+    "GT3_MethodGeneralization": "PASS"
+  },
+  "Rationale": {
+    "GT1_ModelGeneralization": "Filter head mechanism verified on Llama-3.1-8B-Instruct (32 layers, 32 heads), a model NOT used in the original work. Identified filter heads [(17,24), (13,18), (18,28), (18,20), (14,20), (26,13), (15,11)]. Trial 1: Peach rank 71->3 (\u0394 logit=+5.56). Trial 3: Mango rank 3063->3 (\u0394 logit=+10.25). Query patching successfully transfers predicates to select fruits instead of the original category.",
+    "GT2_DataGeneralization": "Filter heads work on completely new data items NOT in the original dataset. Tested with: Dragonfruit, Lychee, Papaya, Guava, Pomegranate (fruits), Rickshaw, Segway, Hovercraft (vehicles), Platypus, Armadillo, Hedgehog (animals), Futon, Hammock, Beanbag (furniture). Trial 1: Lychee rank 30->2 (\u0394 logit=+7.38). Trial 2: Guava rank 11->2 (\u0394 logit=+3.25). Trial 3: Dragonfruit rank 26->1 (\u0394 logit=+6.31). All trials show successful predicate transfer.",
+    "GT3_MethodGeneralization": "The query patching method for identifying filter heads generalizes to similar tasks beyond object categorization. Tested: (1) Letter-based filtering - Bus rank 11->5, (2) Numeric filtering - no significant effect, (3) Property-based filtering (color) - Cherry rank 4->2. Key finding: Same heads (17,24) and (13,18) work across multiple filtering task types, demonstrating the method identifies general-purpose filter heads."
+  }
+}

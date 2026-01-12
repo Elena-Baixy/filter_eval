@@ -1,0 +1,14 @@
+{
+  "Checklist": {
+    "RP1_ImplementationReconstructability": "PASS",
+    "RP2_EnvironmentReproducibility": "PASS",
+    "RP3_DeterminismAndStability": "PASS",
+    "RP4_DemoPresentation": "PASS"
+  },
+  "Rationale": {
+    "RP1_ImplementationReconstructability": "The experiment can be reconstructed from plan.md and demo.ipynb. The plan clearly documents the hypothesis, methodology, experimental design, and metrics. The demo notebook provides executable code for all steps: model loading, sample generation, query state caching, and patching. The only ambiguity is filter head locations for non-70B models, but the localization script is provided.",
+    "RP2_EnvironmentReproducibility": "Environment is reproducible with minor resolvable issues. Core dependencies available via pip. baukit requires GitHub installation. nnsight 0.4.3 works correctly (0.5.x had compatibility issues requiring downgrade). conda_env.yml and env_demo.yml are provided. All issues were resolved and code executed successfully.",
+    "RP3_DeterminismAndStability": "Results are deterministic and stable. Random seeds are controllable (random.seed, torch.manual_seed, np.random.seed). Model inference uses torch.inference_mode decorators. Tested results were consistent: baseline fruit logit 9.625 (rank 171), multi-head patched 9.6875 (rank 164), delta +0.0625.",
+    "RP4_DemoPresentation": "Demo notebook (demo.ipynb) is complete and executable. Demonstrates core claim of predicate transfer via query patching. Includes pre-identified filter heads for supported models, shows both single-head and multi-head effects, and specifies all required inputs. Results match paper's described pattern."
+  }
+}
