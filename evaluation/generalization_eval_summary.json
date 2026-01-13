@@ -1,0 +1,12 @@
+{
+  "Checklist": {
+    "GT1_ModelGeneralization": "PASS",
+    "GT2_DataGeneralization": "PASS",
+    "GT3_MethodGeneralization": "PASS"
+  },
+  "Rationale": {
+    "GT1_ModelGeneralization": "Filter heads were successfully identified in Llama-3.1-8B-Instruct, a model not used in the original work. Found 6 filter heads at layers 14-20, with Layer 17 Head 24 being the strongest (Apple logit +6.0). Patching Q-states from 'fruit' context to 'vehicle' context caused the model prediction to flip from 'Car' to 'Apple', demonstrating predicate transfer works across model scales.",
+    "GT2_DataGeneralization": "The filter head mechanism was verified on new data categories not present in the original dataset: sports vs music genres, countries vs colors, programming languages vs planets. Layer 17 Head 24 consistently appeared as a filter head across all test cases. Q-patching on new categories showed significant logit increases for source-category items.",
+    "GT3_MethodGeneralization": "The Q-state patching method was successfully applied to identify filter heads for the SelectFirst task (another list-filtering operation). The same heads (especially L17H24) were found to encode predicates for this task. Additionally, the method's minimal effect on counting tasks aligns with the original paper's finding that filter heads have low causality on counting (89.80% accuracy after ablation), validating both the method's applicability and its specificity."
+  }
+}

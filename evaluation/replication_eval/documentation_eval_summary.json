@@ -1,0 +1,12 @@
+{
+  "Checklist": {
+    "DE1_ResultFidelity": "PASS",
+    "DE2_ConclusionConsistency": "PASS",
+    "DE3_NoExternalInformation": "PASS"
+  },
+  "Rationale": {
+    "DE1_ResultFidelity": "Demo-only replication successfully demonstrates the core filter head phenomenon. The replicated results show successful predicate transfer via query state patching (\u0394 logit of 9-13 with 15 heads on Llama-3-8B), matching the qualitative behavior shown in the original demo (\u0394 logit of 4.875 with 79 heads on Llama-3.3-70B). Both demonstrate that patching causes selection of source-category items in destination prompts.",
+    "DE2_ConclusionConsistency": "The replicated documentation presents conclusions fully consistent with the original paper: (1) filter heads encode portable predicates in query states, (2) patching transfers predicate representations across contexts, (3) the mechanism generalizes across different category pairs. Limitations are appropriately acknowledged (smaller model, empirical head identification, limited examples).",
+    "DE3_NoExternalInformation": "All claims in the replicated documentation are either direct experimental observations or accurate references to the original paper/demo. The documented \u0394 logit values, filter head locations, and methodology descriptions all derive from the replication experiment or the original sources. No external references, invented findings, or hallucinated details were identified."
+  }
+}
