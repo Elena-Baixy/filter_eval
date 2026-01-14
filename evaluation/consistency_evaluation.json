@@ -1,0 +1,31 @@
+{
+  "project_path": "/net/scratch2/smallyan/filter_eval",
+  "project_name": "LLMs Process Lists With General Filter Heads",
+  "checklist_items": {
+    "CS1": {
+      "name": "Conclusion vs Original Results",
+      "result": "PASS",
+      "rationale": "Top filter heads (L35H19, L39H45, L35H17) AIE values match exactly between documentation and raw data. Probe accuracy claim (0.81 \u00b1 0.02) verified against raw probe_performance.json."
+    },
+    "CS2": {
+      "name": "Implementation Follows the Plan",
+      "result": "PASS",
+      "rationale": "All methodology steps from plan.md have corresponding notebooks/scripts. DCM localization, patching experiments, generalization tests, ablation studies, and probe training are all implemented with data for all 5 task types."
+    },
+    "CS3": {
+      "name": "Effect Size",
+      "result": "PASS",
+      "rationale": "All effects are non-trivial: AIE values 50+ std devs above mean, patching shows 70pp improvement, ablation causes 87pp accuracy drop, cross-task generalization shows 65-75pp over baseline."
+    },
+    "CS4": {
+      "name": "Justification of Steps and Intermediate Conclusions",
+      "result": "PASS",
+      "rationale": "All methodology choices (DCM, query patching, multiple tasks, ablation, probes) are justified in documentation. Intermediate conclusions (sparsity, query encoding, generalization, dual strategies) have supporting evidence."
+    },
+    "CS5": {
+      "name": "Statistical Significance Reporting",
+      "result": "PASS",
+      "rationale": "Error bars reported for key metrics (0.81 \u00b1 0.02 probe accuracy), sample sizes stated (40/task), raw data enables verification. Top heads show Z-scores of 19-50 (p<0.001). Effect sizes large enough for clear significance."
+    }
+  }
+}
