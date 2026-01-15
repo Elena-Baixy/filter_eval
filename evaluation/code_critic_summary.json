@@ -1,30 +1,30 @@
 {
-  "Runnable_Percentage": 100.0,
+  "Runnable_Percentage": 96.55172413793103,
   "Incorrect_Percentage": 0.0,
   "Redundant_Percentage": 0.0,
-  "Irrelevant_Percentage": 12.5,
-  "Correction_Rate_Percentage": 100.0,
+  "Irrelevant_Percentage": 0.0,
+  "Correction_Rate_Percentage": 0.0,
   "Issues": {
-    "Runnable_Issues_Exist": false,
+    "Runnable_Issues_Exist": true,
     "Output_Mismatch_Exists": false,
     "Incorrect_Exists": false,
     "Redundant_Exists": false,
-    "Irrelevant_Exists": true
+    "Irrelevant_Exists": false
   },
   "Checklist": {
-    "C1_All_Runnable": "PASS",
+    "C1_All_Runnable": "FAIL",
     "C2_All_Correct": "PASS",
     "C3_No_Redundant": "PASS",
-    "C4_No_Irrelevant": "FAIL"
+    "C4_No_Irrelevant": "PASS"
   },
   "Rationale": {
-    "C1_All_Runnable": "All 16 blocks execute without error. No blocks have Runnable = N.",
-    "C2_All_Correct": "All 13 non-NA blocks have Correct-Implementation = Y. No implementation errors detected.",
-    "C3_No_Redundant": "No blocks marked as redundant. Each block contributes unique computation to the analysis.",
-    "C4_No_Irrelevant": "2 blocks marked as irrelevant (empty placeholder cells at end of notebook). These are minor and do not affect analysis."
+    "C1_All_Runnable": "Block(s) failed to run: src_evaluation. Issue: src/evaluation.py has missing src.probing module dependency.",
+    "C2_All_Correct": "All implementations are correct",
+    "C3_No_Redundant": "No redundant code detected",
+    "C4_No_Irrelevant": "All code is relevant to project goal"
   },
-  "Special_Cases": {
-    "model_loading": "Model meta-llama/Llama-3.3-70B-Instruct requires download (~140GB) which exceeded disk quota. Original notebook outputs confirm successful execution when model is available.",
-    "nnsight_dependency": "Code uses nnsight library for model interventions. Documentation at https://nnsight.net/documentation/"
+  "Special_cases": {
+    "nnsight_compatibility": "filter_by_lm_prediction parameter needs to be set to False due to nnsight library compatibility issue",
+    "missing_module": "src/evaluation.py depends on src.probing which is not present - this module is not part of core analysis workflow"
   }
 }
