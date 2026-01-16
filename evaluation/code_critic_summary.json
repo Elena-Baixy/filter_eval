@@ -1,30 +1,26 @@
 {
-  "Runnable_Percentage": 96.55172413793103,
+  "Runnable_Percentage": 45.83,
   "Incorrect_Percentage": 0.0,
   "Redundant_Percentage": 0.0,
-  "Irrelevant_Percentage": 0.0,
+  "Irrelevant_Percentage": 12.5,
   "Correction_Rate_Percentage": 0.0,
   "Issues": {
     "Runnable_Issues_Exist": true,
     "Output_Mismatch_Exists": false,
     "Incorrect_Exists": false,
     "Redundant_Exists": false,
-    "Irrelevant_Exists": false
+    "Irrelevant_Exists": true
   },
   "Checklist": {
     "C1_All_Runnable": "FAIL",
     "C2_All_Correct": "PASS",
     "C3_No_Redundant": "PASS",
-    "C4_No_Irrelevant": "PASS"
+    "C4_No_Irrelevant": "FAIL"
   },
   "Rationale": {
-    "C1_All_Runnable": "Block(s) failed to run: src_evaluation. Issue: src/evaluation.py has missing src.probing module dependency.",
-    "C2_All_Correct": "All implementations are correct",
-    "C3_No_Redundant": "No redundant code detected",
-    "C4_No_Irrelevant": "All code is relevant to project goal"
-  },
-  "Special_cases": {
-    "nnsight_compatibility": "filter_by_lm_prediction parameter needs to be set to False due to nnsight library compatibility issue",
-    "missing_module": "src/evaluation.py depends on src.probing which is not present - this module is not part of core analysis workflow"
+    "C1_All_Runnable": "FAIL: 13 blocks could not run due to GPU memory constraints (OOM with 70B model + nnsight tracing overhead). Code logic is correct - issue is environmental, not code bugs.",
+    "C2_All_Correct": "PASS: All 18 blocks with implementations are correct. No logic errors found.",
+    "C3_No_Redundant": "PASS: No redundant blocks found. All code serves distinct purposes.",
+    "C4_No_Irrelevant": "FAIL: 3 blocks are irrelevant (1 debug cell checking tensor shape, 2 empty placeholder cells)."
   }
 }
